@@ -1,0 +1,88 @@
+﻿@model AnimalsCollection.Models.CreatureModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CreatureModel</h4>
+    <hr />
+
+    <table class="details-table">
+  
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Id)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Description)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Age)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Speed)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Speed)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Strength)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Strength)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Intelligence)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Intelligence)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Level)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Level)
+            </td>
+        </tr>
+    </table>
+
+    
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
