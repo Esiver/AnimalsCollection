@@ -16,6 +16,10 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+
+        <th>
             @Html.DisplayNameFor(model => model.Name)
             
         </th>
@@ -41,6 +45,9 @@
     @foreach ( var creature in creatures )
     {
         <tr>
+            <td>
+                @creature.Id
+            </td>
             <td>
                 @creature.Name
             </td>

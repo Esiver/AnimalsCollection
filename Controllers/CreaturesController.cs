@@ -28,7 +28,16 @@ namespace AnimalsCollection.Controllers
         {
             return View("CreatureForm");
         }
+        public IActionResult Delete(int Id)
+        {
+            CreatureDAO creatureDAO = new CreatureDAO();
+            creatureDAO.Delete(Id);
 
+
+            List<CreatureModel> creatures = creatureDAO.FetchAll();
+
+            return View("CreatureForm", creatures);
+        }
         public IActionResult Edit(int Id)
         {
             CreatureDAO creatureDAO = new CreatureDAO();

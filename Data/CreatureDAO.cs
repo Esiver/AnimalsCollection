@@ -41,12 +41,34 @@ namespace AnimalsCollection.Data
                         returnList.Add(creature);
                     }
                 }
+                connection.Close();
 
             }
 
-                return returnList;
+            return returnList;
         }
 
+        internal int Delete(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                string sqlQuery = "DELETE FROM dbo.Creatures WHERE Id= @Id";
+
+                SqlCommand command = new SqlCommand(sqlQuery, connection);
+
+                command.Parameters.Add("@Id", System.Data.SqlDbType.Int, 100).Value = id;
+
+
+                connection.Open();
+
+                int deletedId = command.ExecuteNonQuery();
+
+
+
+                return deletedId;
+            }
+        }
 
         public CreatureModel FetchOne(int id)
         {
@@ -83,6 +105,9 @@ namespace AnimalsCollection.Data
                         
                     }
                 }
+
+                connection.Close();
+
                 return creature;
 
             }
@@ -96,13 +121,15 @@ namespace AnimalsCollection.Data
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string sqlQuery = "";
-                if (creatureModel.Id <= 0)
+                if (creatureModel.Id >= 0)
                 {
-                    sqlQuery = "INSERT INTO dbo.Creatures Values(@Name, @Description, @Age, @Strength, @Speed, @Intelligence, @Level)";
+                    sqlQuery = "UPDATE dbo.Creatures SET Name = @Name, Description = @Description, Age = @Age, Strength = @Strength, Speed = @Speed, Intelligence = @Intelligence, Level = @Level WHERE Id = @Id";
+
                 }
                 else
                 {
-                    sqlQuery = "UPDATE dbo.Creatures SET Name = @Name, Description = @Description, Age = @Age, Strength = @Strength, Speed = @Speed, Intelligence = @Intelligence, Level = @Level, WHERE Id = @Id";
+                    sqlQuery = "INSERT INTO dbo.Creatures Values(@Name, @Description, @Age, @Strength, @Speed, @Intelligence, @Level)";
+
                 }
 
 
@@ -121,6 +148,8 @@ namespace AnimalsCollection.Data
 
                 int newId = command.ExecuteNonQuery();
                                 
+                
+
                 return newId;
             }
 
@@ -128,6 +157,7 @@ namespace AnimalsCollection.Data
 
 
         // delete one
+        
 
         // search for name
 

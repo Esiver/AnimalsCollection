@@ -15,26 +15,32 @@
   
         <tr>
             <td>
-                @Html.DisplayNameFor(model => model.Id)
+                @*@Html.DisplayNameFor(model => model.Id)*@
+                Id
             </td>
             <td>
-                @Html.DisplayFor(model => model.Id)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.DisplayNameFor(model => model.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Name)
+                @Model.Id
+                @*@Html.DisplayFor(model => model.Id)*@
             </td>
         </tr>
         <tr>
             <td>
-                @Html.DisplayNameFor(model => model.Description)
+                @*@Html.DisplayNameFor(model => model.Name)*@
+                Name
             </td>
             <td>
-                @Html.DisplayFor(model => model.Description)
+                @Model.Name
+                @*@Html.DisplayFor(model => model.Name)*@
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Description
+                @*@Html.DisplayNameFor(model => model.Description)*@
+            </td>
+            <td>
+                @Model.Description
+                @*@Html.DisplayFor(model => model.Description)*@
             </td>
         </tr>
         <tr>
@@ -84,5 +90,6 @@
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Edit">Edit me</a>
     <a asp-action="Index">Back to List</a>
 </div>
