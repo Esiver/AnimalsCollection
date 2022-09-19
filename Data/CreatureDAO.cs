@@ -121,14 +121,16 @@ namespace AnimalsCollection.Data
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string sqlQuery = "";
-                if (creatureModel.Id >= 0)
+                
+                if (creatureModel.Id <= 0)
                 {
-                    sqlQuery = "UPDATE dbo.Creatures SET Name = @Name, Description = @Description, Age = @Age, Strength = @Strength, Speed = @Speed, Intelligence = @Intelligence, Level = @Level WHERE Id = @Id";
+                    sqlQuery = "INSERT INTO dbo.Creatures Values(@Name, @Description, @Age, @Strength, @Speed, @Intelligence, @Level)";
 
                 }
                 else
                 {
-                    sqlQuery = "INSERT INTO dbo.Creatures Values(@Name, @Description, @Age, @Strength, @Speed, @Intelligence, @Level)";
+                    sqlQuery = "UPDATE dbo.Creatures SET Name = @Name, Description = @Description, Age = @Age, Strength = @Strength, Speed = @Speed, Intelligence = @Intelligence, Level = @Level WHERE Id = @Id";
+
 
                 }
 

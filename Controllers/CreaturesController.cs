@@ -44,6 +44,7 @@ namespace AnimalsCollection.Controllers
             CreatureModel creature = creatureDAO.FetchOne(Id);
 
             return View("CreatureForm", creature);
+
         }
 
         public IActionResult ProcessCreate(CreatureModel creatureModel)
